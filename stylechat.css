@@ -156,10 +156,13 @@ body {
 
 .message {
     max-width: 80%;
-    padding: 10px 14px 14px 14px;
+    padding: 10px 14px 8px 14px; /* Ajuste leve no padding inferior */
     font-size: 0.95rem;
     line-height: 1.5;
     box-shadow: var(--bubble-shadow);
+    /* Adicione estas duas linhas abaixo: */
+    display: flex;
+    flex-direction: column; 
 }
 
 .ai-message { background: var(--bubble-ai); border-radius: 0 16px 16px 16px; }
@@ -167,10 +170,13 @@ body {
 
 .sender-name { font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
 .time {
-font-size: 0.65rem;
-    align-self: flex-end;
-    margin-top:4px;
-      }
+    font-size: 0.65rem;
+    color: var(--text-muted); /* Adicionado para usar sua variável de cor */
+    align-self: flex-end; /* Empurra o horário para a direita */
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+}
 
 /* Input Area */
 .input-area {
