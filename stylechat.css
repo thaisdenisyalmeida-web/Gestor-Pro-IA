@@ -167,14 +167,9 @@ body {
 
 .sender-name { font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
 .time {
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    align-self: flex-end; /* Isso empurra o horário para a direita */
-    margin-top: 4px;
-    display: flex;
-    align-items: center;
-    gap: 3px; /* Espaço entre a hora e os risquinhos de lido, se usar */
-}
+font-size: 0.65rem;
+    align-self: flex-box;
+    margin-top:4px;
       }
 
 /* Input Area */
