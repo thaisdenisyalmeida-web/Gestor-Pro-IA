@@ -1,26 +1,15 @@
-const fetch = require("node-fetch");
+// Dentro do seu try/catch na função do Netlify
+const response = await fetch("https://api.groq.com/openai/v1/chat/completions", { ... });
 
-exports.handler = async (event) => {
-  const { messages } = JSON.parse(event.body);
-  const CHAVE = process.env.OPENAI_API_KEY; // A chave ficará guardada no servidor do Netlify
+// Adicione isso para debugar:
+const responseText = await response.text(); 
+console.log("Resposta bruta da Groq:", responseText);
 
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${CHAVE}`
-    },
-    body: JSON.stringify({
-      model: "gpt-4o-mini",
-      messages: messages,
-      max_tokens: 800
-    })
-  });
-
-  const data = await response.json();
-
+if (!response.ok) {
   return {
-    statusCode: 200,
-    body: JSON.stringify(data)
+    statusCode: response.status,
+    body: JSON.stringify({ error: `Erro na API: ${response.status} - ${responseText}` })
   };
-};
+}
+
+const data = JSON.parse(responseText);
