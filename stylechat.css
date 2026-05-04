@@ -168,7 +168,7 @@ body {
 .sender-name { font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
 .time {
 font-size: 0.65rem;
-    align-self: flex-box;
+    align-self: flex-end;
     margin-top:4px;
       }
 
